@@ -3,5 +3,9 @@ class TeachersController < ApplicationController
     @teachers = Teacher.all
 
     render json: @teachers.to_json(:include => :courses )
-  end  
+  end
+  def destroy
+    @teacher = Teacher.find(params[:id])
+    @teacher.destroy
+  end
 end
